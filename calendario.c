@@ -206,9 +206,19 @@ void calendario ( int year, int month, int dia_pos, int dias_mes ){
 			}
 		}
 	}
-	
+	bool tiene_6_lineas;
+	tiene_6_lineas = (dia_pos + dias_mes) >= 36;
+
+	int calendar_cut; //variable que recorta el calendario si es necesario.
+
+	if ( tiene_6_lineas ){
+		calendar_cut = 6;
+	}else{
+		calendar_cut = 5;
+	}
+
 	//Imprime el calendario
-	for ( int ii = 0; ii < 6; ii++ ){
+	for ( int ii = 0; ii < calendar_cut; ii++ ){
 		for ( int jj = 0; jj < 23; jj++ ){
 			printf("%c", array[ii][jj]);
 		}
@@ -221,6 +231,17 @@ void calendario ( int year, int month, int dia_pos, int dias_mes ){
 }
 
 /*
+ABRIL              1971
+
+=======================
+LU MA MI JU VI | SA  DO
+ .  .  .  1  2 |  3   4
+ 5  6  7  8  9 | 10  11
+12 13 14 15 16 | 17  18
+19 20 21 22 23 | 24  25
+26 27 28 29 30  
+
+
 ABRIL              1971
 
 =======================
